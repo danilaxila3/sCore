@@ -59,11 +59,11 @@ void handle_new_files(int argc, char *argv[]) {
   }
 
   if (errors == 0) {
-    printf("\e[32m󰻭 \e[0mAll files created successfully.\n");
+    printf("\e[32m󰝒 \e[0mAll files created successfully.\n");
   } else if (errors == argc - 2) {
-    printf("\e[31m󰻭 \e[0mNo files were created.\n");
+    printf("\e[31m󰝒 \e[0mNo files were created.\n");
   } else {
-    printf("\e[33m󰻭 \e[0mSome files were not created.\n");
+    printf("\e[33m󰝒 \e[0mSome files were not created.\n");
   }
 }
 
@@ -85,19 +85,20 @@ void handle_remove_files(int argc, char *argv[]) {
   }
 
   if (errors == 0) {
-    printf("\e[32m󱪢 \e[0mAll files removed successfully.\n");
+    printf("\e[32m󱪡 \e[0mAll files removed successfully.\n");
   } else if (errors == argc - 2) {
-    printf("\e[31m󱪢 \e[0mNo files were removed.\n");
+    printf("\e[31m󱪡 \e[0mNo files were removed.\n");
   } else {
-    printf("\e[33m󱪢 \e[0mSome files were not removed.\n");
+    printf("\e[33m󱪡 \e[0mSome files were not removed.\n");
   }
 }
 
 void handle_move_file(char *source, char *destination) {
   if (rename(source, destination) != 0) {
-    printf("\e[31m󱀱 \e[0mError moving file: %s to %s\n", source, destination);
+    printf("\e[31m󰪹 \e[0mError moving file: %s to %s\n", source,
+           destination);
   } else {
-    printf("\e[32m󱀱 \e[0mMoved file: %s to %s\n", source, destination);
+    printf("\e[32m󰪹 \e[0mMoved file: %s to %s\n", source, destination);
   }
 }
 
@@ -105,11 +106,11 @@ void handle_file_content(char *filename) {
   FILE *file = fopen(filename, "r");
 
   if (file == NULL) {
-    printf("\e[31m󰷋 \e[0mError opening file: %s\n", filename);
+    printf("\e[31m󰷊 \e[0mError opening file: %s\n", filename);
     return;
   }
 
-  printf("\e[32m󰷋 \e[0mContent of %s:\n", filename);
+  printf("\e[32m󰷊 \e[0mContent of %s:\n", filename);
 
   char ch;
   while ((ch = fgetc(file)) != EOF) {
@@ -133,3 +134,4 @@ void print_usage(const char *command) {
     printf("\e[34m \e[0mUsage: sfile <new|remove|move|content> ...\n");
   }
 }
+

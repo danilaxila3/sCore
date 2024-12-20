@@ -2,10 +2,8 @@
 
 i'm still working on most commands. more features are to come out later
 
-<p align="center">
-  <h1>sCore</h1>
-  a simple coreutils alternative
-</p>
+<h1 align="center">sCore</h1>
+<p align="center">a simple coreutils alternative</p>
 
 # About
 
